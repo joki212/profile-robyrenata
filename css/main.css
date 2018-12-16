@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+SC");
-body, html {
+body,
+html {
   font-family: 'Noto Serif SC', serif;
   margin: 0;
 }
 
-body a, html a {
+body a,
+html a {
   text-decoration: none;
 }
 
@@ -43,6 +45,11 @@ section h1::after {
   border-top: 5px solid lightgray;
   display: none;
   margin-top: 10px;
+}
+
+section h2 {
+  display: none;
+  opacity: 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -85,6 +92,63 @@ section ul li a {
   }
   section ul .material-icons {
     font-size: 1em;
+  }
+}
+
+section .section-about {
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  /* Adjust as needed */
+  /* The typing effect */
+  /* The typewriter cursor effect */
+}
+
+section .section-about .section-about:nth-of-type(1) {
+  -webkit-animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+          animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
   }
 }
 
@@ -139,8 +203,8 @@ nav ul li {
 
 .show-menu {
   display: block;
-  -webkit-animation: slide-menu 1s ease-in forwards;
-          animation: slide-menu 1s ease-in forwards;
+  -webkit-animation: slide-menu 0.5s ease-in forwards;
+          animation: slide-menu 0.5s ease-in forwards;
   z-index: 500;
 }
 
@@ -150,23 +214,23 @@ nav ul li {
 }
 
 .show-menu li:nth-of-type(1) {
-  -webkit-animation: menu-item-anim .6s forwards 1s ease-in-out;
-          animation: menu-item-anim .6s forwards 1s ease-in-out;
+  -webkit-animation: menu-item-anim .3s forwards 1s ease-in-out;
+          animation: menu-item-anim .3s forwards 1s ease-in-out;
 }
 
 .show-menu li:nth-of-type(2) {
-  -webkit-animation: menu-item-anim .6s forwards 1.2s ease-in-out;
-          animation: menu-item-anim .6s forwards 1.2s ease-in-out;
+  -webkit-animation: menu-item-anim .3s forwards 1.2s ease-in-out;
+          animation: menu-item-anim .3s forwards 1.2s ease-in-out;
 }
 
 .show-menu li:nth-of-type(3) {
-  -webkit-animation: menu-item-anim .6s forwards 1.4s ease-in-out;
-          animation: menu-item-anim .6s forwards 1.4s ease-in-out;
+  -webkit-animation: menu-item-anim .3s forwards 1.4s ease-in-out;
+          animation: menu-item-anim .3s forwards 1.4s ease-in-out;
 }
 
 .show-menu li:nth-of-type(4) {
-  -webkit-animation: menu-item-anim .6s forwards 1.6s ease-in-out;
-          animation: menu-item-anim .6s forwards 1.6s ease-in-out;
+  -webkit-animation: menu-item-anim .3s forwards 1.6s ease-in-out;
+          animation: menu-item-anim .3s forwards 1.6s ease-in-out;
 }
 
 @media screen and (max-width: 500px) {

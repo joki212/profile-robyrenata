@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC');
 
-body, html {
+body,
+html {
     font-family: 'Noto Serif SC', serif;
     margin: 0;
 
@@ -46,6 +47,11 @@ section {
         }
     }
 
+    h2 {
+        display: none;
+        opacity: 0;
+    }
+
     @media screen and (max-width: 500px) {
         h1 {
             font-size: 2em;
@@ -59,7 +65,7 @@ section {
 
     ul {
         list-style-type: none;
-        
+
         li {
             margin-bottom: 10px;
             display: none;
@@ -70,7 +76,7 @@ section {
                 font-size: 2em;
                 margin-right: 2%;
             }
-            
+
             a {
                 color: black;
                 font-weight: bold;
@@ -93,6 +99,54 @@ section {
             }
         }
     }
+
+    // about section
+    .section-about {
+        overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid black;
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+
+        /* Gives that scrolling effect as the typing happens */
+        // letter-spacing: .15em;
+        /* Adjust as needed */
+        .section-about:nth-of-type(1) {
+            animation:
+                typing 3.5s steps(30, end),
+                blink-caret .5s step-end infinite;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: orange
+            }
+        }
+    }
+
+
+
+    // end of about section
 }
 
 nav {
@@ -104,7 +158,7 @@ nav {
     display: none;
     transform: scaleX(0);
     transform-origin: right;
-    
+
     .close-btn {
         width: 20px;
         float: right;
@@ -142,7 +196,7 @@ nav {
 
 .show-menu {
     display: block;
-    animation: slide-menu 1s ease-in forwards;
+    animation: slide-menu 0.5s ease-in forwards;
     z-index: 500;
 
     .close-btn {
@@ -150,19 +204,19 @@ nav {
     }
 
     li:nth-of-type(1) {
-        animation: menu-item-anim .6s forwards 1s ease-in-out;
+        animation: menu-item-anim .3s forwards 1s ease-in-out;
     }
 
     li:nth-of-type(2) {
-        animation: menu-item-anim .6s forwards 1.2s ease-in-out;
+        animation: menu-item-anim .3s forwards 1.2s ease-in-out;
     }
 
     li:nth-of-type(3) {
-        animation: menu-item-anim .6s forwards 1.4s ease-in-out;
+        animation: menu-item-anim .3s forwards 1.4s ease-in-out;
     }
 
     li:nth-of-type(4) {
-        animation: menu-item-anim .6s forwards 1.6s ease-in-out;
+        animation: menu-item-anim .3s forwards 1.6s ease-in-out;
     }
 
     @media screen and (max-width: 500px) {
@@ -180,7 +234,9 @@ nav {
     from {
         transform: scaleX(0);
         opacity: 0.85;
-    } to {
+    }
+
+    to {
         transform: scaleX(1);
         opacity: 0.85;
     }
@@ -189,22 +245,55 @@ nav {
 @keyframes show-x {
     from {
         opacity: 0;
-    } to {
+    }
+
+    to {
         opacity: 1;
     }
 }
 
 @keyframes menu-item-anim {
-    0% { opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 300, 0, 1); }
-    4.1% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 125.912, 0, 1); }
-    8.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 31.647, 0, 1); }
-    12.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -5.53, 0, 1); }
-    16.12% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -13.007, 0, 1); }
-    27.23% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.352, 0, 1); }
-    38.34% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.311, 0, 1); }
-    60.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.007, 0, 1); }
-    82.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
-    100% { opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+    0% {
+        opacity: 1;
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 300, 0, 1);
+    }
+
+    4.1% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 125.912, 0, 1);
+    }
+
+    8.11% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 31.647, 0, 1);
+    }
+
+    12.11% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -5.53, 0, 1);
+    }
+
+    16.12% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -13.007, 0, 1);
+    }
+
+    27.23% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.352, 0, 1);
+    }
+
+    38.34% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.311, 0, 1);
+    }
+
+    60.56% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.007, 0, 1);
+    }
+
+    82.78% {
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
 }
 
 .animation-entry {
@@ -219,11 +308,11 @@ nav {
     li:nth-of-type(2) {
         animation: menu-item-anim 2s forwards 1.2s ease-in-out;
     }
-    
+
 }
 
 .animation-fade-in {
-    display:block;
+    display: block;
     animation: menu-item-anim 1s forwards 1.2s ease-in-out;
 
     &::after {
@@ -237,7 +326,9 @@ nav {
     from {
         transform: scaleY(0);
         opacity: 0.85;
-    } to {
+    }
+
+    to {
         transform: scaleY(1);
         opacity: 0.85;
     }
